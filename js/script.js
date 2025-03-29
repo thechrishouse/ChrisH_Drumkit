@@ -21,3 +21,19 @@ function removeTransition(e) {
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 window.addEventListener('keydown', playSound);
+
+// Slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-item');
+const totalSlides = slides.length;
+
+function moveSlide(step) {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+  slides[currentSlide].classList.add('active');
+}
+
+// Ensure the first slide is properly shown on page load
+document.addEventListener("DOMContentLoaded", () => {
+  slides[currentSlide].classList.add('active');
+});

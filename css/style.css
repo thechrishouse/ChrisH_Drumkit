@@ -11,7 +11,16 @@ html {
   font-family: sans-serif;
 }
 
+h2 {
+  text-align: center;
+  font-size: 5rem;
+  color: white;
+  position: absolute;
+  top: 20px;
+}
+
 .keys {
+  position: relative;
   display: flex;
   flex: 1;
   min-height: 100vh;
@@ -35,7 +44,7 @@ html {
 
 .playing {
   transform: scale(1.1);
-  border-color: #ffc600;
+  border-color: #5d41ff;
   box-shadow: 0 0 1.2rem #ffc600;
 }
 
@@ -49,4 +58,51 @@ kbd {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #ffc600;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  display: none; /* Hide all slides by default */
+}
+
+.carousel-item.active {
+  display: flex; /* Show active slide */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
